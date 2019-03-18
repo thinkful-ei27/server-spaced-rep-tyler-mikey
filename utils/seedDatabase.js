@@ -16,7 +16,8 @@ mongoose.connect(DATABASE_URL, { useNewUrlParser: true })
   .then(() => {
     return Promise.all([
       Word.insertMany(words),
-      User.insertMany(users)
+      User.insertMany(users),
+      User.createIndexes()
     ]);
   })
   .then(results => {
