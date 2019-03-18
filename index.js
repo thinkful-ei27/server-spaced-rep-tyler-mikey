@@ -22,6 +22,12 @@ app.use(
   })
 );
 
+app.get('/api/learn', (req, res, next) => {
+  const hello = 'hello';
+  return res.send(hello);
+    // .catch(err => console.log(err));
+});
+
 function runServer(port = PORT) {
   const server = app
     .listen(port, () => {
