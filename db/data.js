@@ -1,8 +1,8 @@
 const words = [
   {
     '_id': '111111111111111111111101',
-    'germanWord': 'bier',
-    'englishWord': 'beer'
+    'germanWord': 'kopfschmerzen',
+    'englishWord': 'headache'
 
   },
   {
