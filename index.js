@@ -21,6 +21,9 @@ passport.use(jwtStrategy);
 
 const app = express();
 
+app.use(express.json());
+
+
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
     skip: (req, res) => process.env.NODE_ENV === 'test'
@@ -39,7 +42,7 @@ app.use('/api/words', wordsRouter);
 
 // Custom 404 Not Found route handler
 app.use((req, res, next) => {
-  
+
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
