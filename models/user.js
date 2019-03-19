@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
-  fullname : { type : String },
-  username : { type : String, required : true, unique : true },
-  password : { type : String, required : true },
-  words : { type : Array , default: undefined }
+  fullname: { type: String },
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  words: { type: Array, default: undefined }
 });
 
 userSchema.set('timestamps', true);
@@ -31,3 +31,16 @@ userSchema.statics.hashPassword = function (incomingPassword) {
 };
 
 module.exports = mongoose.model('User', userSchema);
+
+
+
+
+
+
+
+// const newHash = 'kaleQueen9';
+// function getHash(newHash) {
+//   return bcrypt.hash(newHash, 10)
+//     .then(res => console.log(res));
+// }
+// getHash(newHash);
