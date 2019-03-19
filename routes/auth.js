@@ -11,14 +11,15 @@ const localAuth = passport.authenticate('local', options);
 // Protect endpoints using JWT Strategy
 
 function createAuthToken (user) {
-  return jwt.sign({ user }, JWT_SECRET, {
+  let username =user.username;
+  return jwt.sign({ username }, JWT_SECRET, {
     subject: user.username,
     expiresIn: JWT_EXPIRY
   });
 }
 
 router.post('/login', localAuth, (req, res) => {
-  console.log('hi', req);
+
   const authToken = createAuthToken(req.user);
   res.json({ authToken });
 });

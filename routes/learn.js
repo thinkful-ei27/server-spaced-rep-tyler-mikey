@@ -37,7 +37,6 @@ router.post('/', (req, res, next) => {
       let testedWord = {
         germanWord: wordList[0].germanWord,
         englishWord: wordList[0].englishWord
-
       };
 
       if (correct) {
