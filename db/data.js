@@ -2,62 +2,66 @@ const words = [
   {
     '_id': '111111111111111111111101',
     'germanWord': 'kopfschmerzen',
-    'englishWord': 'headache'
-
+    'englishWord': 'headache',
+    'Mvalue': 1
   },
   {
     '_id': '111111111111111111111102',
     'germanWord': 'prost',
-    'englishWord': 'cheers'
+    'englishWord': 'cheers',
+    'Mvalue': 1
   },
   {
     '_id': '111111111111111111111103',
     'germanWord': 'getränk',
-    'englishWord': 'drink'
-
+    'englishWord': 'drink',
+    'Mvalue': 1
   },
   {
     '_id': '111111111111111111111104',
     'germanWord': 'barhocker',
-    'englishWord': 'barstool'
-
+    'englishWord': 'barstool',
+    'Mvalue': 1
   },
   {
     '_id': '111111111111111111111105',
     'germanWord': 'brezel',
-    'englishWord': 'pretzel'
-
+    'englishWord': 'pretzel',
+    'Mvalue': 1
   },
   {
     '_id': '111111111111111111111106',
     'germanWord': 'danke',
-    'englishWord': 'thank you'
+    'englishWord': 'thank you',
+    'Mvalue': 1
 
   },
   {
     '_id': '111111111111111111111107',
     'germanWord': 'ein anderes, bitte',
-    'englishWord': 'another, please'
+    'englishWord': 'another, please',
+    'Mvalue': 1
 
   },
   {
     '_id': '111111111111111111111108',
     'germanWord': 'badezimmer',
-    'englishWord': 'bathroom'
+    'englishWord': 'bathroom',
+    'Mvalue': 1
 
   },
   {
     '_id': '111111111111111111111109',
     'germanWord': 'leeren',
-    'englishWord': 'empty'
-
+    'englishWord': 'empty',
+    'Mvalue': 1
   },
   {
     '_id': '111111111111111111111110',
     'germanWord': 'taxi',
-    'englishWord': 'taxi'
-
-  },
+    'englishWord': 'taxi',
+    'Mvalue': 1
+  }
 
 ];
 

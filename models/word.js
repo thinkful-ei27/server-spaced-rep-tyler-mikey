@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const wordSchema = new mongoose.Schema({
   germanWord: { type: String, required: true },
   englishWord: { type: String, required: true },
+  Mvalue: {type: Number, required: true}
 });
 // Add `createdAt` and `updatedAt` fields
 wordSchema.set('timestamps', true);

@@ -14,11 +14,20 @@ const { words, users } = require('../db/data');
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true })
   .then(() => mongoose.connection.db.dropDatabase())
   .then(() => {
-    return Promise.all([
-      Word.insertMany(words),
-      User.insertMany(users),
-      User.createIndexes()
-    ]);
+    return Word.insertMany(words);
+  })
+  .then(() => Word.find())
+  .then(words => {
+    const wordsList = words.map(word => {
+      let item = {};
+      item.germanWord = word.germanWord;
+      item.englishWord = word.englishWord;
+      item.Mvalue = word.Mvalue;
+      return item;
+    });
+    const newUser = users[0];
+    newUser.words = [...wordsList];
+    return User.insertMany(newUser);
   })
   .then(results => {
     console.info(results);

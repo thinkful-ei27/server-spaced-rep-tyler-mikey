@@ -2,6 +2,7 @@
 
 const express = require('express');
 const User = require('../models/user');
+const Word = require('../models/word');
 
 const router = express.Router();
 
@@ -88,17 +89,30 @@ router.post('/', (req, res, next) => {
         password: digest,
         fullname: fullname.trim()
       };
-      return User.create(newUser);
-    })
-    .then(result => {
-      return res.status(201).location(`http://${req.headers.host}/api/users/${result.id}`).json(result);
-    })
-    .catch(err => {
-      if (err.code === 11000) {
-        err = new Error('The username already exists');
-        err.status = 400;
-      }
-      next(err);
+      return Word.find()
+        // TODO next pointers to word list.
+        .then((words) => {
+          const wordsList = words.map(word => {
+            let item = {};
+            item.germanWord = word.germanWord;
+            item.englishWord = word.englishWord;
+            item.Mvalue = word.Mvalue;
+            return item;
+          });
+          newUser.words = [...wordsList];
+          return User.create(newUser);
+        })
+        .then(result => {
+          return res.status(201).location(`http://${req.headers.host}/api/users/${result.id}`).json(result);
+        })
+        .catch(err => {
+          if (err.code === 11000) {
+            err = new Error('The username already exists');
+            err.status = 400;
+          }
+          next(err);
+        });
+
     });
 
 });
