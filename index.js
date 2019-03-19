@@ -40,7 +40,7 @@ app.use(
 
 app.use('/api', authRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/words', learnRouter);
+app.use('/api/learn', learnRouter);
 
 // Custom 404 Not Found route handler
 app.use((req, res, next) => {
