@@ -103,6 +103,8 @@ router.post('/', (req, res, next) => {
           return User.create(newUser);
         })
         .then(result => {
+          console.log(result);
+        
           return res.status(201).location(`http://${req.headers.host}/api/users/${result.id}`).json(result);
         })
         .catch(err => {
