@@ -11,7 +11,7 @@ const User = require('../models/user');
 
 const { words, users } = require('../db/data');
 
-mongoose.connect(DATABASE_URL, { useNewUrlParser: true })
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useCreateIndex: true })
   .then(() => mongoose.connection.db.dropDatabase())
   .then(() => {
     return Word.insertMany(words);
@@ -25,9 +25,12 @@ mongoose.connect(DATABASE_URL, { useNewUrlParser: true })
       item.Mvalue = word.Mvalue;
       return item;
     });
-    const newUser = users[0];
-    newUser.words = [...wordsList];
-    return User.insertMany(newUser);
+    const newUsers = users.map(user => {
+      return Object.assign({}, user, {
+        words: [...wordsList]
+      });
+    });
+    return User.insertMany(newUsers);
   })
   .then(results => {
     console.info(results);
