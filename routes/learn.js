@@ -27,7 +27,7 @@ router.post('/', (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-
+// 
   return User.findOne({ _id: userId })
     .then(user => {
       let wordList = user.words;
