@@ -32,7 +32,6 @@ router.post('/', (req, res, next) => {
     .then(user => {
       let wordList = user.words;
       let head = user.head;
-      console.log(wordList);
 
       if (wordList[head].germanWord !== germanWord) {
         const err = new Error('User word does not match current DB word');
@@ -46,15 +45,16 @@ router.post('/', (req, res, next) => {
       }
 
       let next = wordList[head].pointer;
-      console.log(`this is next ${next}`);
       if (wordList[head].Mvalue > 9) {
+       
         let current = wordList[head];
-        while (current.pointer) {
-          let next = wordList[head].pointer;
+
+        while (current.pointer !== null) {
+          let next = current.pointer;
           current = wordList[next];
         }
-        wordList[head].pointer = null;
         current.pointer = head;
+        wordList[head].pointer = null;
       } else {
         let counter = 1;
         let current = head;
