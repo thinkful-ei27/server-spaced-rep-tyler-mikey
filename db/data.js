@@ -70,7 +70,7 @@ const words = [
     'germanWord': 'taxi',
     'englishWord': 'taxi',
     'Mvalue': 1,
-    'pointer': 0
+    'pointer': null
   }
 
 ];

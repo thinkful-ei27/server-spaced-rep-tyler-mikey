@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
@@ -30,6 +32,8 @@ router.post('/', (req, res, next) => {
     .then(user => {
       let wordList = user.words;
       let head = user.head;
+      console.log(wordList);
+
       if (wordList[head].germanWord !== germanWord) {
         const err = new Error('User word does not match current DB word');
         err.status = 400;
@@ -38,13 +42,16 @@ router.post('/', (req, res, next) => {
 
       if (correct) {
         wordList[head].Mvalue *= 2;
-      } else { wordList[head].Mvalue = 1; }
+      } else { wordList[head].Mvalue = 1; 
+      }
 
       let next = wordList[head].pointer;
+      console.log(`this is next ${next}`);
       if (wordList[head].Mvalue > 9) {
         let current = wordList[head];
         while (current.pointer) {
-          current = wordList[head].pointer;
+          let next = wordList[head].pointer;
+          current = wordList[next];
         }
         wordList[head].pointer = null;
         current.pointer = head;
@@ -58,9 +65,10 @@ router.post('/', (req, res, next) => {
         wordList[head].pointer = wordList[current].pointer;
         wordList[current].pointer = head;
       }
-      user.head = next;
       
-      return User.findOneAndUpdate({ _id: userId }, { $set: { words: wordList } })
+      head = next;
+      
+      return User.findOneAndUpdate({ _id: userId }, { $set: { words: wordList, head: head } })
         .then(() => {
           res.sendStatus(204);
         })
