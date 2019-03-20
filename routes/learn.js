@@ -9,7 +9,8 @@ router.get('/', (req, res, next) => {
   const userId = req.user.id;
   return User.findOne({ _id: userId })
     .then((user) => {
-      const word = user.words[0];
+      let index = user.head;
+      const word = user.words[index];
       res.json(word);
     })
     .catch(err => next(err));
