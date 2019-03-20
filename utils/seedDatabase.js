@@ -23,6 +23,7 @@ mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useCreateIndex: true })
       item.germanWord = word.germanWord;
       item.englishWord = word.englishWord;
       item.Mvalue = word.Mvalue;
+      item.pointer = word.pointer;
       return item;
     });
     const newUsers = users.map(user => {

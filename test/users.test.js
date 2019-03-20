@@ -47,7 +47,7 @@ describe('Noteful API - Users', function () {
           res = _res;
           expect(res).to.have.status(201);
           expect(res.body).to.be.an('object');
-          expect(res.body).to.have.keys('id', 'username', 'words','fullname', 'createdAt', 'updatedAt');
+          expect(res.body).to.have.keys('id', 'username', 'words','fullname', 'createdAt', 'updatedAt', 'head');
           expect(res.body.id).to.exist;
           expect(res.body.username).to.equal(username);
           expect(res.body.fullname).to.equal(fullname);
@@ -237,7 +237,7 @@ describe('Noteful API - Users', function () {
           res = _res;
           expect(res).to.have.status(201);
           expect(res.body).to.be.an('object');
-          expect(res.body).to.have.keys('id', 'username', 'fullname', 'words', 'createdAt', 'updatedAt');
+          expect(res.body).to.have.keys('id', 'username', 'fullname', 'words', 'createdAt', 'updatedAt', 'head');
           expect(res.body.id).to.exist;
           expect(res.body.username).to.equal(username);
           expect(res.body.fullname).to.equal('whitespace fullname');

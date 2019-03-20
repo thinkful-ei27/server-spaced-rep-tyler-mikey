@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
   fullname: { type: String },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  words: { type: Array, default: undefined }
+  words: { type: Array, default: undefined },
+  head: {type:Number, default:0}
 });
 
 userSchema.set('timestamps', true);
