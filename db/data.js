@@ -18,28 +18,28 @@ const words = [
     'germanWord': 'getränk',
     'englishWord': 'drink',
     'Mvalue': 1,
-    'pointer':4
+    'pointer':3
   },
   {
     '_id': '111111111111111111111104',
     'germanWord': 'barhocker',
     'englishWord': 'barstool',
     'Mvalue': 1,
-    'pointer':5
+    'pointer':4
   },
   {
     '_id': '111111111111111111111105',
     'germanWord': 'brezel',
     'englishWord': 'pretzel',
     'Mvalue': 1,
-    'pointer':6
+    'pointer':5
   },
   {
     '_id': '111111111111111111111106',
     'germanWord': 'danke',
     'englishWord': 'thank you',
     'Mvalue': 1,
-    'pointer':7
+    'pointer':6
 
   },
   {
@@ -47,7 +47,7 @@ const words = [
     'germanWord': 'ein anderes, bitte',
     'englishWord': 'another, please',
     'Mvalue': 1,
-    'pointer':8
+    'pointer':7
 
   },
   {
@@ -55,7 +55,7 @@ const words = [
     'germanWord': 'badezimmer',
     'englishWord': 'bathroom',
     'Mvalue': 1,
-    'pointer':9
+    'pointer':8
 
   },
   {
@@ -63,14 +63,14 @@ const words = [
     'germanWord': 'leeren',
     'englishWord': 'empty',
     'Mvalue': 1,
-    'pointer':10
+    'pointer':9
   },
   {
     '_id': '111111111111111111111110',
     'germanWord': 'taxi',
     'englishWord': 'taxi',
     'Mvalue': 1,
-    'pointer':null
+    'pointer': 0
   }
 
 ];

@@ -97,6 +97,8 @@ router.post('/', (req, res, next) => {
             item.germanWord = word.germanWord;
             item.englishWord = word.englishWord;
             item.Mvalue = word.Mvalue;
+            item.pointer = word.pointer;
+            item._id = word.wordId;
             return item;
           });
           newUser.words = [...wordsList];
@@ -104,7 +106,7 @@ router.post('/', (req, res, next) => {
         })
         .then(result => {
           console.log(result);
-        
+
           return res.status(201).location(`http://${req.headers.host}/api/users/${result.id}`).json(result);
         })
         .catch(err => {
