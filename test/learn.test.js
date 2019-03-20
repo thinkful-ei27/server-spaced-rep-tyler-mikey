@@ -4,7 +4,7 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
 const express = require('express');
-const app = require('../index');
+const { app } = require('../index');
 const sinon = require('sinon');
 
 
@@ -80,17 +80,22 @@ describe('German API - learn', function () {
   describe('GET /api/learn', function () {
     it('should return the first word pair', function () {
       return Promise.all([
-        User.find({ _id: user.id }),
+        User.findOne({ _id: user.id }),
         chai.request(app).get('/api/learn')
           .set('Authorization', `Bearer ${token}`)
       ])
         .then(([user, res]) => {
-          console.log(user, res)
           const word = user.words[0];
           expect(res).to.have.status(200);
           expect(res).to.be.json;
-          expect(word.germanWord).to.equal(res.germanWord);
+          expect(word.germanWord).to.equal(res.body.germanWord);
         });
+    });
+  });
+  describe('POST /api/learn', function () {
+    it('should handle repositioning in the list', function () {
+      return Promise.all([
+      ]);
     });
   });
 
