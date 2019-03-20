@@ -76,7 +76,6 @@ describe('German API - learn', function () {
     return dbDisconnect();
   });
 
-
   describe('GET /api/learn', function () {
     it('should return the first word pair', function () {
       return Promise.all([

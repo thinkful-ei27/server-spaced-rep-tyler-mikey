@@ -7,10 +7,10 @@
     "start": "nodemon index.js",
     "mocha": "mocha --exit --file test/setup.test.js '!(node_modules)/**/*test.js'",
     "mocha-exit0": "mocha --exit --file test/setup.test.js '!(node_modules)/**/*test.js' || true",
-    "test": "cross-env NODE_ENV=test mocha",
+    "test": "mocha --exit",
     "cover": "nyc --reporter=lcov --reporter=text-summary npm run mocha",
-    "heroku": "node index.js",
-    "travis": "npm run mocha"
+    "heroku": "node index.js"
+    
   },
   "repository": {
     "type": "git"
