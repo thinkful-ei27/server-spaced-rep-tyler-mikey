@@ -9,8 +9,10 @@ router.use('/', passport.authenticate('jwt', { session: false, failWithError: tr
 
 router.get('/', (req, res, next) => {
   const userId = req.user.id;
+  //get user document
   return User.findOne({ _id: userId })
     .then((user) => {
+    //  use head value to return word at the address indicated by head
       let index = user.head;
       const word = user.words[index];
       res.json(word);

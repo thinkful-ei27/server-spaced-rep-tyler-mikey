@@ -11,7 +11,7 @@ router.post('/', (req, res, next) => {
   const requiredFields = ['username', 'password'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
-
+  // make sure all required fields are included
   if (missingField) {
     return res.status(422).json({
       code: 422,
@@ -21,6 +21,7 @@ router.post('/', (req, res, next) => {
     });
   }
 
+  
   const stringFields = ['username', 'password', 'fullname'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
