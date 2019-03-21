@@ -22,52 +22,66 @@ router.post('/', (req, res, next) => {
   const userId = req.user.id;
   const { germanWord, correct } = req.body;
 
+  // Check if client sends response boolean
   if (typeof correct !== 'boolean') {
     const err = new Error('Did not include result boolean');
     err.status = 400;
     return next(err);
   }
 
+  // get list head , the word client just answered
   return User.findOne({ _id: userId })
     .then(user => {
       let wordList = user.words;
       let head = user.head;
 
+      // make sure client is answered word that is the list head
       if (wordList[head].germanWord !== germanWord) {
         const err = new Error('User word does not match current DB word');
         err.status = 400;
         return next(err);
       }
 
+      // handle Memory score
       if (correct) {
         wordList[head].Mvalue *= 2;
-      } else { wordList[head].Mvalue = 1; 
+      } else {
+        wordList[head].Mvalue = 1;
       }
 
+      // store list heads pointer 
       let next = wordList[head].pointer;
-      if (wordList[head].Mvalue > 9) {
-       
-        let current = wordList[head];
 
-        while (current.pointer !== null) {
-          let next = current.pointer;
-          current = wordList[next];
+      // checks for M value that is larger than list length
+      if (wordList[head].Mvalue > 9) {
+        let currentWord = wordList[head];
+
+        // finds end of list
+        while (currentWord.pointer !== null) {
+          let next = currentWord.pointer;
+          currentWord = wordList[next];
         }
-        current.pointer = head;
+        //  list end now second to last, list hed put at end
+        currentWord.pointer = head;
         wordList[head].pointer = null;
-      } else {
+      }
+      //  creates counter to find position in the list that matches the mValue
+      else {
         let counter = 1;
-        let current = head;
+        let currentAddress = head;
         while (counter <= wordList[head].Mvalue) {
-          current = wordList[current].pointer;
+          currentAddress = wordList[currentAddress].pointer;
           counter++;
         }
-        wordList[head].pointer = wordList[current].pointer;
-        wordList[current].pointer = head;
+        // list heads new address now in a place in the list according to Mvalue
+        wordList[head].pointer = wordList[currentAddress].pointer;
+        wordList[currentAddress].pointer = head;
       }
-      
+
+      //  sets new head to the next value ( heads pointer), stored above.
       head = next;
-      
+
+      //  update DB
       return User.findOneAndUpdate({ _id: userId }, { $set: { words: wordList, head: head } })
         .then(() => {
           res.sendStatus(204);
