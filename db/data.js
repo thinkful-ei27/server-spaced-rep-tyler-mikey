@@ -70,7 +70,77 @@ const words = [
     'germanWord': 'taxi',
     'englishWord': 'taxi',
     'Mvalue': 1,
-    'pointer': null
+    'pointer': 10
+  },
+  {
+    '_id': '111111111111111111111111',
+    'germanWord': 'bier',
+    'englishWord': 'beer',
+    'Mvalue': 1,
+    'pointer': 11
+  },
+  {
+    '_id': '111111111111111111111112',
+    'germanWord': 'nachfüllung',
+    'englishWord': 'refill',
+    'Mvalue': 1,
+    'pointer': 12
+  },
+  {
+    '_id': '111111111111111111111113',
+    'germanWord': 'betrunken',
+    'englishWord': 'drunk',
+    'Mvalue': 1,
+    'pointer': 13
+  },
+  {
+    '_id': '111111111111111111111114',
+    'germanWord': 'water',
+    'englishWord': 'wasser',
+    'Mvalue': 1,
+    'pointer': 14
+  },
+  {
+    '_id': '111111111111111111111115',
+    'germanWord': 'ich bin durstig',
+    'englishWord': 'i am thirsty',
+    'Mvalue': 1,
+    'pointer': 15
+  },
+  {
+    '_id': '111111111111111111111116',
+    'germanWord': 'Du solltest nach Hause gehen',
+    'englishWord': 'you should walk home',
+    'Mvalue': 1,
+    'pointer': 16
+  },
+  {
+    '_id': '111111111111111111111117',
+    'germanWord': 'ich habe Hunger',
+    'englishWord': 'i am hungry',
+    'Mvalue': 1,
+    'pointer': 17
+  },
+  {
+    '_id': '111111111111111111111118',
+    'germanWord': 'stolpern',
+    'englishWord': 'stumble',
+    'Mvalue': 1,
+    'pointer': 18
+  },
+  {
+    '_id': '111111111111111111111119',
+    'germanWord': ' wie heißen Sie?',
+    'englishWord': 'what is your name?',
+    'Mvalue': 1,
+    'pointer': 19
+  },
+  {
+    '_id': '111111111111111111111120',
+    'germanWord': 'bist du Single?',
+    'englishWord': 'are you single?',
+    'Mvalue': 1,
+    'pointer': 20
   }
 
 ];

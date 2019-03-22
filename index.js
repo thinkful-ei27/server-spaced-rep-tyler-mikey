@@ -33,9 +33,9 @@ app.use(
 
 app.use(
   cors(
-  //   {
-  //   origin: CLIENT_ORIGIN
-  // }
+    {
+      origin: CLIENT_ORIGIN || 'https://localhost:3000'
+    }
   )
 );
 
