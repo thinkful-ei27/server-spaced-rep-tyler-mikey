@@ -1,7 +1,7 @@
 {
-  "name": "thinkful-backend-template",
+  "name": "friday-night-in-german-backend",
   "version": "1.0.0",
-  "description": "Template for an Express backend",
+  "description": "Express backend",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
